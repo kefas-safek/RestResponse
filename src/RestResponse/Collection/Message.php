@@ -5,7 +5,7 @@
  */
 
 namespace RestResponse\Collection;
-
+ 
 class Message {
 
     /**
