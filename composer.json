@@ -5,6 +5,7 @@
     "keywords": ["REST", "REST API", "API"],
     "homepage": "https://github.com/kefas-safek/RestResponse",
     "license": "MIT",
+    "version": "dev-master",
     "authors": [
         {
             "name": "Piotr Dombrowski",
