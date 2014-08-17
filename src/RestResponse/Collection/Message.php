@@ -248,7 +248,7 @@ class Message {
      * @param type $path
      * @param type $relative
      * @throws \Exception
-     * @return \RestResponse\Collection
+     * @return \RestResponse\Collection\Message
      */
     public function addMessages(array $messages, $path = null, $relative = false) {
         if ($path === null) {
