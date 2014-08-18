@@ -132,11 +132,16 @@ class Response {
         return $this;
     }
 
+    /**
+     * reset all params of Response and Message object
+     * @return \RestResponse\Response\Response
+     */
     public function reset() {
         $this->getMessages()->clear();
         $this->code = 200;
         $this->isValid = true;
         $this->info = null;
+        return $this;
     }
 
     public function getCode() {
