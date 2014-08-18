@@ -125,7 +125,7 @@ class Response {
      * @return \RestResponse\Response\Response
      */
     public function setCreated($id = null) {
-        $this->setCode(\Bms\Response\Response::CREATED);
+        $this->setCode(\RestResponse\Response\Response::CREATED);
         if ($id) {
             $this->setInfo(array('id' => $id));
         }
