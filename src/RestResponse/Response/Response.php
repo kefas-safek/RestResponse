@@ -121,6 +121,7 @@ class Response {
     }
 
     /**
+     * 
      * @param string
      * @return \RestResponse\Response\Response
      */
