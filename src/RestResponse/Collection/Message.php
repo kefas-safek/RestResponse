@@ -155,7 +155,7 @@ class Message {
             $path = $this->cursor;
         } else {
             if (is_string($path) || is_int($path)) {
-                $path = array($path);
+                $path = $this->computePath($path);
             }
             if ($relative == true) {
                 $path = array_merge($this->cursor, $path);
@@ -183,7 +183,7 @@ class Message {
             $path = $this->cursor;
         } else {
             if (is_string($path) || is_int($path)) {
-                $path = array($path);
+                $path = $this->computePath($path);
             }
             if ($relative == true) {
                 $path = array_merge($this->cursor, $path);
@@ -243,6 +243,22 @@ class Message {
     }
 
     /**
+     * @param string $path
+     * @return \RestResponse\Collection\Message
+     */
+    public function setPath($path) {
+        $this->setCursor($this->computePath($path));
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPath() {
+        return implode('/', $this->getCursor());
+    }
+
+    /**
      * 
      * @param array $messages
      * @param type $path
@@ -255,7 +271,7 @@ class Message {
             $path = $this->cursor;
         } else {
             if (is_string($path) || is_int($path)) {
-                $path = array($path);
+                $path = $this->computePath($path);
             }
             if ($relative == true) {
                 $path = array_merge($this->cursor, $path);
@@ -357,6 +373,24 @@ class Message {
             return false;
         }
         return true;
+    }
+
+    /**
+     * @param string $path
+     * @return array
+     */
+    protected function computePath($path) {
+        if (!is_array($path) || !is_string($path)) {
+            throw new Exception('wrong path format');
+        }
+        $arrayPath = array();
+        if (is_string($path)) {
+            $arrayPath = explode('/', $path);
+        }
+        if (is_array($path)) {
+            $arrayPath = $path;
+        }
+        return $arrayPath;
     }
 
 }

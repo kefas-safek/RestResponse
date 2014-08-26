@@ -120,7 +120,7 @@ class Response {
     public function setNotValid($message = null, $path = null, $relative = false) {
         $this->isValid = false;
         $this->setCode(self::IS_NOT_VALID);
-        if ($message) { 
+        if ($message) {
             $this->getMessages()->addMessage($message, $path, $relative);
         }
         return $this;
@@ -246,6 +246,25 @@ class Response {
     public function addMessages(array $messages, $path = null, $relative = false) {
         $this->getMessages()->addMessages($messages, $path, $relative);
         return $this;
+    }
+
+    /**
+     * @param string $path
+     * @return \RestResponse\Response\Response
+     */
+    public function setPath($path) {
+        if (is_string($path)) {
+            $arrayPath = explode('/', $path);
+            $this->getMessages()->setCursor($arrayPath)->saveCursor($path);
+        }
+        return $this;
+    }
+    
+    /**
+     * @return string
+     */
+    public function getPath(){
+        return implode('/', $this->getMessages()->getCursor());
     }
 
 }
