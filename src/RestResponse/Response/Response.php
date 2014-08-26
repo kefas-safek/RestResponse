@@ -238,13 +238,24 @@ class Response {
     /**
      * alias of addMessages from \Restresponse\Collection
      * @param array $messages
-     * @param type $path
-     * @param type $relative
+     * @param string|array $path
+     * @param boolean $relative
      * @throws \Exception
      * @return \RestResponse\Response\Response
      */
     public function addMessages(array $messages, $path = null, $relative = false) {
         $this->getMessages()->addMessages($messages, $path, $relative);
+        return $this;
+    }
+    
+    /**
+     * @param string $messages
+     * @param string|array $path
+     * @param boolean $relative
+     * @return \RestResponse\Response\Response
+     */
+    public function addMessage($messages, $path = null, $relative = false) {
+        $this->getMessages()->addMessage($messages, $path, $relative);
         return $this;
     }
 

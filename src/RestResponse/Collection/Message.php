@@ -110,7 +110,7 @@ class Message {
             $path = $this->cursor;
         } else {
             if (is_string($path) || is_int($path)) {
-                $path = array($path);
+                $path = $this->computePath($path);
             }
             if ($relative == true) {
                 $path = array_merge($this->cursor, $path);
