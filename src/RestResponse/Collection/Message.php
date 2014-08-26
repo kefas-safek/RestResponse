@@ -235,10 +235,13 @@ class Message {
      * @throws \Exception
      */
     public function setNextCursorValue($value) {
+        $value = $this->computePath($value);
         if (!$this->isValidPathValue($value)) {
             throw new \Exception('value is invalid, wrong format');
         }
-        $this->cursor[] = $value;
+        foreach ($value as $valueItem) {
+            $this->cursor[] = $valueItem;
+        }
         return $this;
     }
 
@@ -380,12 +383,12 @@ class Message {
      * @return array
      */
     protected function computePath($path) {
+        $path = trim($path);
+        $path = rtrim($path, '/');
         if (!is_array($path) || !is_string($path)) {
             throw new Exception('wrong path format');
         }
-        if($path === '/'){
-            return array();
-        }
+
         $arrayPath = array();
         if (is_string($path)) {
             $arrayPath = explode('/', $path);

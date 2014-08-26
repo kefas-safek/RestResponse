@@ -258,6 +258,15 @@ class Response {
         $this->getMessages()->addMessage($messages, $path, $relative);
         return $this;
     }
+    
+    /**
+     * @param string $path
+     * @return \RestResponse\Response\Response
+     */
+    public function appendPath($path){
+        $this->getMessages()->setNextCursorValue($path);
+        return $this;
+    }
 
     /**
      * @param string $path
