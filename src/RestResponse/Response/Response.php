@@ -120,7 +120,7 @@ class Response {
     public function setNotValid($message = null, $path = null, $relative = false) {
         $this->isValid = false;
         $this->setCode(self::IS_NOT_VALID);
-        if ($message) {
+        if ($message) { 
             $this->getMessages()->addMessage($message, $path, $relative);
         }
         return $this;
