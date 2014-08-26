@@ -112,11 +112,17 @@ class Response {
     }
 
     /**
+     * @param array|string $message
+     * @param array $path
+     * @param boolean $relative
      * @return \RestResponse\Response\Response
      */
-    public function setNotValid() {
+    public function setNotValid($message = null, $path = null, $relative = false) {
         $this->isValid = false;
         $this->setCode(self::IS_NOT_VALID);
+        if ($message) {
+            $this->getMessages()->addMessage($message, $path, $relative);
+        }
         return $this;
     }
 
