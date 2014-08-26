@@ -383,6 +383,9 @@ class Message {
         if (!is_array($path) || !is_string($path)) {
             throw new Exception('wrong path format');
         }
+        if($path === '/'){
+            return array();
+        }
         $arrayPath = array();
         if (is_string($path)) {
             $arrayPath = explode('/', $path);
