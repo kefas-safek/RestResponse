@@ -253,18 +253,15 @@ class Response {
      * @return \RestResponse\Response\Response
      */
     public function setPath($path) {
-        if (is_string($path)) {
-            $arrayPath = explode('/', $path);
-            $this->getMessages()->setCursor($arrayPath)->saveCursor($path);
-        }
+        $this->getMessages()->setPath($path);
         return $this;
     }
-    
+
     /**
      * @return string
      */
-    public function getPath(){
-        return implode('/', $this->getMessages()->getCursor());
+    public function getPath() {
+        return $this->getMessages()->getPath();
     }
 
 }
