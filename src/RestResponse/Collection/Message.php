@@ -255,10 +255,11 @@ class Message {
     }
 
     /**
+     * @param string $alias
      * @return string
      */
-    public function getPath() {
-        return implode('/', $this->getCursor());
+    public function getPath($alias) {
+        return implode('/', $this->getCursor($alias));
     }
 
     /**

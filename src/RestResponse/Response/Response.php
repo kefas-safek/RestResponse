@@ -247,7 +247,7 @@ class Response {
         $this->getMessages()->addMessages($messages, $path, $relative);
         return $this;
     }
-    
+
     /**
      * @param string $messages
      * @param string|array $path
@@ -258,12 +258,12 @@ class Response {
         $this->getMessages()->addMessage($messages, $path, $relative);
         return $this;
     }
-    
+
     /**
      * @param string $path
      * @return \RestResponse\Response\Response
      */
-    public function appendPath($path){
+    public function appendPath($path) {
         $this->getMessages()->setNextCursorValue($path);
         return $this;
     }
@@ -278,10 +278,20 @@ class Response {
     }
 
     /**
+     * @param string $alias
      * @return string
      */
-    public function getPath() {
-        return $this->getMessages()->getPath();
+    public function getPath($alias = null) {
+        return $this->getMessages()->getPath($alias);
+    }
+
+    /**
+     * @param string $name
+     * @return \RestResponse\Response\Response
+     */
+    public function savePath($name) {
+        $this->getMessages()->saveCursor($alias);
+        return $this;
     }
 
 }
