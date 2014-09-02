@@ -239,7 +239,7 @@ class Message {
         if (!$this->isValidPathValues($value)) {
             throw new \Exception('value is invalid, wrong format');
         }
-        foreach ($value as $valueItem) {
+        foreach ($value as $valueItem) { 
             $this->cursor[] = $valueItem;
         }
         return $this;
