@@ -286,10 +286,10 @@ class Response {
     }
 
     /**
-     * @param string $name
+     * @param string $alias
      * @return \RestResponse\Response\Response
      */
-    public function savePath($name) {
+    public function savePath($alias) {
         $this->getMessages()->saveCursor($alias);
         return $this;
     }
