@@ -11,7 +11,7 @@ class Message {
     /**
      * @var array 
      */
-    protected $cursor = array();
+    protected $cursor = array(); 
 
     /**
      * @var array 
