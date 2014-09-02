@@ -236,7 +236,7 @@ class Message {
      */
     public function setNextCursorValue($value) {
         $value = $this->computePath($value);
-        if (!$this->isValidPathValue($value)) {
+        if (!$this->isValidPathValues($value)) {
             throw new \Exception('value is invalid, wrong format');
         }
         foreach ($value as $valueItem) {
