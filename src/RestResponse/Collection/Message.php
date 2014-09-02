@@ -387,7 +387,7 @@ class Message {
         $path = trim($path);
         $path = rtrim($path, '/');
         if (!is_array($path) || !is_string($path)) {
-            throw new Exception('wrong path format');
+            throw new \Exception('wrong path format');
         }
 
         $arrayPath = array();
